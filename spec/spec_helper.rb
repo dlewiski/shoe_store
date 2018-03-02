@@ -13,8 +13,8 @@ Dir[File.dirname(__FILE__) + '/../lib/*.rb'].each { |file| require file }
 
 RSpec.configure do |config|
   config.after(:each) do
-    Shoe.all().each() do |shoe|
-      shoe.destroy()
+    Store.all().each() do |store|
+      store.destroy()
     end
 
     Brand.all().each() do |brand|
