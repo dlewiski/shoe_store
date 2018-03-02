@@ -29,12 +29,17 @@ get('/store/:id/edit') do
   erb:store_edit
 end
 
-patch('/store')do 
+patch('/store')do
   update_store = Store.find(params['store_update'].to_i)
   update_store.update({:store => params['store']})
   @stores = Store.all
   @brands = Brand.all
   erb:index
+end
+
+get('/store/:id') do
+  @store = Store.find(params[:id].to_i)
+  erb:store
 end
 
 delete('/delete_store') do
