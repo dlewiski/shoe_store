@@ -2,3 +2,20 @@
   <h1>Shoe store database</h1>
 </div>
 <h2>Current stores:</h2>
+
+<table>
+  <th>Stores</th>
+  <th>location</th>
+  <th>Remove</th>
+  <% @stores.each do |store| %>
+    <tr>
+      <td><a href="/store/<%=store.id%>"><%= store.store %></a></td>
+      <td>city, state</td>
+      <td><form action="/delete_store" method=post>
+        <input name="_method" type="hidden" value="delete">
+        <input type="hidden" name="store_delete" value="<%= store.id %>">
+        <button type="submit" class="store_delete_button">&#10005;</button>
+      </form></td>
+    </tr>
+  <% end %>
+</table><br>
