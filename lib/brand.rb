@@ -2,8 +2,8 @@
 class Brand < ActiveRecord::Base
   validates(:brand, {:presence => true, :length => { :maximum => 100 }})
   validates(:price, {:presence => true})
-  has_many :brands_stores
-  has_many :stores, through: :brands_stores
+  has_many :inventories
+  has_many :stores, through: :inventories
   before_create(:capitalize_brand)
 
   private

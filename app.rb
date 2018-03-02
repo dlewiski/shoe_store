@@ -39,9 +39,9 @@ end
 
 get('/store/:id') do
   binding.pry
-  @store = Store.find(params[:id].to_i)
-  @brands = Brand.all
+  @store = Store.find(params['id'].to_i)
   @store_brands = @store.brands
+  @brands = Brand.all
   erb:store
 end
 
