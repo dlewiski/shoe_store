@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302201838) do
+ActiveRecord::Schema.define(version: 20180302214734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180302201838) do
 
   create_table "inventories", force: :cascade do |t|
     t.string "brand_id"
-    t.decimal "store_id"
+    t.string "store_id"
   end
 
   create_table "stores", force: :cascade do |t|
