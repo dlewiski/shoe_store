@@ -10,5 +10,14 @@ get('/') do
 end
 
 post('/') do
+  new_store = Store.create({:store => params['store']})
+  @stores = Store.all
+  erb:index
+end
+
+delete('/delete_store') do
+  deleted_store = Store.find(params['store_delete'].to_i)
+  deleted_store.destroy
+  @stores = Store.all
   erb:index
 end
