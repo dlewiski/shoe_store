@@ -20,3 +20,7 @@ describe('Brand') do
     end
   end
 end
+
+describe(Brand) do
+  it { should validate_uniqueness_of(:brand)}
+  end
