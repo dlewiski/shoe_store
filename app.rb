@@ -24,6 +24,19 @@ post('/brand') do
   erb:index
 end
 
+get('/store/:id/edit') do
+  @store = Store.find(params[:id].to_i)
+  erb:store_edit
+end
+
+patch('/store')do 
+  update_store = Store.find(params['store_update'].to_i)
+  update_store.update({:store => params['store']})
+  @stores = Store.all
+  @brands = Brand.all
+  erb:index
+end
+
 delete('/delete_store') do
   deleted_store = Store.find(params['store_delete'].to_i)
   deleted_store.destroy

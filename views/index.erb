@@ -6,11 +6,13 @@
 <table>
   <th>Stores</th>
   <th>location</th>
+  <th>edit</th>
   <th>Remove</th>
   <% @stores.each do |store| %>
     <tr>
       <td><a href="/store/<%=store.id%>"><%= store.store %></a></td>
       <td>city, state</td>
+      <td><a href= "/store/<%=store.id%>/edit"><button name="edit">edit</button></a></td>
       <td><form action="/delete_store" method=post>
         <input name="_method" type="hidden" value="delete">
         <input type="hidden" name="store_delete" value="<%= store.id %>">
