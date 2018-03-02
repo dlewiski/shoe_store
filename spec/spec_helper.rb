@@ -16,7 +16,7 @@ RSpec.configure do |config|
     Shoe.all().each() do |shoe|
       shoe.destroy()
     end
-  end
+
     Brand.all().each() do |brand|
       brand.destroy()
     end
