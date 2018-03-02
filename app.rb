@@ -38,8 +38,16 @@ patch('/store')do
 end
 
 get('/store/:id') do
-  binding.pry
   @store = Store.find(params['id'].to_i)
+  @store_brands = @store.brands
+  @brands = Brand.all
+  erb:store
+end
+
+post('/store/:id') do
+  @store = Store.find(params['id'].to_i)
+  add_brand = Brand.find(params['brand'].to_i)
+  @store.brands.push(add_brand)
   @store_brands = @store.brands
   @brands = Brand.all
   erb:store
@@ -59,4 +67,14 @@ delete('/delete_brand') do
   @brands = Brand.all
   @stores = Store.all
   erb:index
+end
+
+delete('/delete/:id/brand') do
+  @store = Store.find(params['id'].to_i)
+  deleted_brand = Brand.find(params['brand_delete'].to_i)
+  deleted_brand.inventories.delete_all
+  @store_brands = @store.brands
+  @brands = Brand.all
+  @stores = Store.all
+  erb:store
 end
