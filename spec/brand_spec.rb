@@ -13,9 +13,9 @@ describe(Brand) do
   end
 
 describe('Brand') do
-  describe('.capitalize') do
+  describe('.capitalize_brand') do
     it("capitalizes the first letter in each word entered for brand title") do
-      test_brand = Brand.create({:brand => "run for days"})
+      test_brand = Brand.create({:brand => "run for days", :price => 4.5})
       expect(test_brand.brand).to(eq("Run For Days"))
     end
   end

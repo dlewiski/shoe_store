@@ -38,7 +38,10 @@ patch('/store')do
 end
 
 get('/store/:id') do
+  binding.pry
   @store = Store.find(params[:id].to_i)
+  @brands = Brand.all
+  @store_brands = @store.brands
   erb:store
 end
 
