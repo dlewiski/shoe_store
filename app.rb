@@ -18,7 +18,8 @@ post('/store') do
 end
 
 post('/brand') do
-  new_brand = Brand.create({:brand => params['brand'], :price => params['price'].to_d})
+  new_brand = Brand.new({:brand => params['brand'], :price => params['price'].to_d})
+  new_brand.save
   @brands = Brand.all
   @stores = Store.all
   erb:index
