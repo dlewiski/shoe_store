@@ -47,11 +47,34 @@ end
 
 post('/store/:id') do
   @store = Store.find(params['id'].to_i)
-  add_brand = Brand.find(params['brand'].to_i)
-  @store.brands.push(add_brand)
+  add_brand = Brand.find(params['brand_select'].to_i)
+  unless @store.brands.push(add_brand)
+    @error_message = "Brand already exists!"
+    @store_brands = @store.brands
+    @brands = Brand.all
+    erb:store
+  end
   @store_brands = @store.brands
   @brands = Brand.all
+  @error_message = nil
   erb:store
+end
+
+post('/store/:id/brand') do
+  @store = Store.find(params['id'].to_i)
+  new_brand = Brand.new({:brand => params['brand'], :price => params['price'].to_d})
+  if new_brand.save
+    @store.brands.push(new_brand)
+    @store_brands = @store.brands
+    @brands = Brand.all
+    @error_message = nil
+    erb:store
+  else
+    @error_message = "Brand already exists!"
+    @store_brands = @store.brands
+    @brands = Brand.all
+    erb:store
+  end
 end
 
 delete('/delete_store') do
