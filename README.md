@@ -12,15 +12,17 @@ Clone to your Desktop.
 In terminal, navigate to the root directory of the project.
 Recreate the database by using the following commands in terminal:
 
-* _`$ bundle`_
-
-* _`$ rake db:create`_
-
-* _`$ rake db:migrate`_
+```
+$ bundle
+```
+```
+$ rake db:create
+```
+```
+$ rake db:migrate
+```
 
 Use this command in terminal to run app on the localhost:
-
-* _`$ ruby app.rb`_
 
 ```
 $ ruby app.rb
