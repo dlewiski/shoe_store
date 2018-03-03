@@ -15,6 +15,6 @@ class Brand < ActiveRecord::Base
   end
 
   def currency_convert
-    self.price=("%.2f" % (price().round(2)))
+    self.price=(price())
   end
 end

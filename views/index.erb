@@ -37,7 +37,7 @@
   <% @brands.each do |brand| %>
     <tr>
       <td><%= brand.brand %></a></td>
-      <td><%= brand.price %></td>
+      <td><%= "$" + ("%.2f" % brand.price) %></td>
       <td><form action="/delete_brand" method=post>
         <input name="_method" type="hidden" value="delete">
         <input type="hidden" name="brand_delete" value="<%= brand.id %>">
