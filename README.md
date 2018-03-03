@@ -6,10 +6,21 @@ Remember: the documentation, not the code, defines what a module does. -- Ken Wi
 
 ###[Shoe Store](http://github.com/dlewiski) wrote this Active Record app.
 
-## Setup
+## Setup/Installation Requirements
 
 Clone to your Desktop.
-In terminal, navigate to the root directory of the project and run:
+In terminal, navigate to the root directory of the project.
+Recreate the database by using the following commands in terminal:
+
+* _`$ bundle`_
+
+* _`$ rake db:create`_
+
+* _`$ rake db:migrate`_
+
+Use this command in terminal to run app on the localhost:
+
+* _`$ ruby app.rb`_
 
 ```
 $ ruby app.rb
@@ -22,5 +33,4 @@ Open your browser and go to localhost:4567
 
 *Licensed under MIT license*
 
-Copyright (c) 2018 **_Shoe Store_**
-
+Copyright (c) 2018 **_David Lewis_**

@@ -6,15 +6,10 @@ class Brand < ActiveRecord::Base
   has_many :inventories
   has_many :stores, through: :inventories
   before_validation(:capitalize_brand)
-  before_save(:currency_convert)
 
   private
 
   def capitalize_brand
     self.brand=(brand().titleize)
-  end
-
-  def currency_convert
-    self.price=(price())
   end
 end
