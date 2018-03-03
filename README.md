@@ -4,7 +4,9 @@ Remember: the documentation, not the code, defines what a module does. -- Ken Wi
 
 # Shoe Store
 
-###[Shoe Store](http://github.com/dlewiski) wrote this Active Record app.
+#### _Simple app to track shoe brands and shoe stores_
+
+#### By _**David Lewis**_
 
 ## Setup/Installation Requirements
 
@@ -30,6 +32,18 @@ $ ruby app.rb
 
 Open your browser and go to localhost:4567
 
+
+## Specifications (use case scenarios)
+
+* User can view, add, update and delete stores.
+* User can view, add, and delete brands.
+* User can add brands to the stores
+* User can view brands in a store
+* User can add and delete brands in a store
+
+## Technologies Used
+
+Ruby, ActiveRecord, Sinatra, Postgres, HTML, CSS
 
 ## License
 
