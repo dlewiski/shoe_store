@@ -1,0 +1,57 @@
+<div class="jumbotron">
+  <h1>Shoe store database</h1>
+</div>
+<h2>Current stores:</h2>
+
+<table>
+  <th>Stores</th>
+  <th>location</th>
+  <th>edit</th>
+  <th>Remove</th>
+  <% @stores.each do |store| %>
+    <tr>
+      <td><a href="/store/<%=store.id%>"><%= store.store %></a></td>
+      <td>city, state</td>
+      <td><a href= "/store/<%=store.id%>/edit"><button name="edit">edit</button></a></td>
+      <td><form action="/delete_store" method=post>
+        <input name="_method" type="hidden" value="delete">
+        <input type="hidden" name="store_delete" value="<%= store.id %>">
+        <button type="submit" class="store_delete_button">&#10005;</button>
+      </form></td>
+    </tr>
+  <% end %>
+</table><br>
+
+<h2>Add a new store:</h2>
+<form action="/store" method="post">
+<label for="store">Add a store</label>
+<input type="text" name="store" id="store" autocomplete="off">
+<button type="submit" class="btn btn-dark btn-sm">Add store</button>
+</form><br><br>
+
+<h2>Current shoe brands:</h2>
+<table>
+  <th>Shoe Brand</th>
+  <th>Price</th>
+  <th>Remove</th>
+  <% @brands.each do |brand| %>
+    <tr>
+      <td><%= brand.brand %></a></td>
+      <td><%= "$" + ("%.2f" % brand.price) %></td>
+      <td><form action="/delete_brand" method=post>
+        <input name="_method" type="hidden" value="delete">
+        <input type="hidden" name="brand_delete" value="<%= brand.id %>">
+        <button type="submit" class="brand_delete_button">&#10005;</button>
+      </form></td>
+    </tr>
+  <% end %>
+</table><br>
+
+<h2>Add a new shoe brand:</h2>
+<form action="/brand" method="post">
+<label for="brand">Name of brand</label>
+<input type="text" name="brand" id="brand" autocomplete="off">
+<label for="price">Price</label>
+<input type="text" name="price" id="price" autocomplete="off" required>
+<button type="submit" class="btn btn-dark btn-sm">Add shoe brand</button>
+</form>
