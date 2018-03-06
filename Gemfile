@@ -8,6 +8,7 @@ gem("pry")
 gem("rake")
 
 group(:test) do
+  gem("sinatra-activerecord")
   gem("rspec")
   gem("capybara")
   gem("pry")
