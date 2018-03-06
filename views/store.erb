@@ -12,7 +12,7 @@
     <tr>
       <td><%= brand.brand %></a></td>
       <td><%= "$" + ("%.2f" % brand.price) %></td>
-      <td><form action="/delete_brand" method=post>
+      <td><form action="/delete/<%= @store.id %>/brand" method=post>
         <input name="_method" type="hidden" value="delete">
         <input type="hidden" name="brand_delete" value="<%= brand.id %>">
         <button type="submit" class="brand_delete_button">&#10005;</button>
@@ -21,6 +21,9 @@
   <% end %>
 </table><br><br>
 
+<% if @error_message %>
+<h2><%= @error_message %></h2>
+<% end %>
 <h2>Add an existing shoe brand to this store:</h2>
 <form action="/store/<%= @store.id %>" method="post">
   <label for="brand_select">Name of brand</label>
